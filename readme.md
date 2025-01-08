@@ -38,7 +38,7 @@ O projeto realiza requisições à API Discogs para buscar informações sobre a
 O código foi estruturado utilizando a arquitetura hexagonal para garantir separação de responsabilidades.
 
 - apps/ - Contém o código-fonte, organizado de acordo com a arquitetura hexagonal.
-- adapterss/ - Implementação das interfaces externas (requisições à API).
+- adapters/ - Implementação das interfaces externas (requisições à API).
 - domain/ - Lógica de negócio e entidades do sistema.
     - entities: define as classes que representam as entidades principais do domínio, organiza os dados relacionados aos artistas, álbuns e faixas (tracks) de maneira estruturada.
     - service: Orquestra as interações entre os adaptadores DiscogsAPI (para buscar dados) e    FileStorage (para salvar os dados).
@@ -53,7 +53,7 @@ O código foi estruturado utilizando a arquitetura hexagonal para garantir separ
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/projeto-discogs.git
+https://github.com/<seu-usuario>/api.discogs.git
 ```
 
 2. Instale as dependências necessárias:
