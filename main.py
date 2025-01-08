@@ -1,4 +1,3 @@
-import os
 from apps.adapters.discogs_api import DiscogsAPI
 from apps.adapters.file_storage import FileStorage
 from apps.domain.service import ArtistService

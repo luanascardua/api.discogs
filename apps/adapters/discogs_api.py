@@ -1,16 +1,17 @@
 import requests
-from apps.domain.entities import Artist, Album, Track
-from typing import List, Optional
 
 from decouple import config
 
+from apps.domain.entities import Artist, Album, Track
+from apps.domain.utils.generate_id import generate_id
+
 
 class DiscogsAPI:
-    BASE_URL = config("BASE_URL")
-    HEADERS = {"Authorization": f"Discogs token={config('TOKEN')}"}
 
     def __init__(self, token: str):
         self.token = token
+        self.BASE_URL = config("BASE_URL")
+        self.HEADERS = {"Authorization": f"Discogs token={self.token}"}
 
     def search_artists_by_release_genre(self, genre, limit=10):
         endpoint = f"{self.BASE_URL}/database/search"
@@ -69,6 +70,7 @@ class DiscogsAPI:
             websites = artist_details.get("urls", [])
 
             return Artist(
+                id=generate_id(),
                 name=name,
                 genre=genre,
                 members=members,
@@ -127,4 +129,5 @@ class DiscogsAPI:
             return albums
         else:
             print(f"Erro ao obter detalhes do álbum: {response.status_code}")
+            return []
             return None
