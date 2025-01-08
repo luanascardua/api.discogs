@@ -34,7 +34,8 @@ class Album:
 
 
 class Artist:
-    def __init__(self, name: str, genre: str, members: List[str], websites: List[str], albums: List[Album]):
+    def __init__(self, id: str, name: str, genre: str, members: List[str], websites: List[str], albums: List[Album]):
+        self.id = id
         self.name = name
         self.genre = genre
         self.members = members
@@ -43,6 +44,7 @@ class Artist:
 
     def to_dict(self):
         return {
+            "id": self.id,
             "name": self.name,
             "genre": self.genre,
             "members": self.members,

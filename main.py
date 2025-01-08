@@ -1,4 +1,3 @@
-import os
 from apps.adapters.discogs_api import DiscogsAPI
 from apps.adapters.file_storage import FileStorage
 from apps.domain.service import ArtistService
@@ -8,7 +7,7 @@ from decouple import config
 
 def main():
     genre = "rock"
-    output_file = "artists.json"
+    output_file = "dados.json"
 
     api = DiscogsAPI(config("TOKEN"))
     storage = FileStorage()

@@ -14,6 +14,8 @@ class ArtistService:
         for artist_name in artists:
             albums = self.discogs_api.get_album_details(artist_name)
             artist_resource_url, artist_id = self.discogs_api.search_artist(artist_name)
+            if not artist_resource_url:
+                continue
             artist_details = self.discogs_api.get_artist_details(artist_resource_url, albums)
             if artist_details:
                 data.append(artist_details.to_dict())
