@@ -7,7 +7,7 @@ from decouple import config
 
 def main():
     genre = "rock"
-    output_file = "artists.json"
+    output_file = "dados.json"
 
     api = DiscogsAPI(config("TOKEN"))
     storage = FileStorage()
